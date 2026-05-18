@@ -1,5 +1,7 @@
 extends Node2D
 
+@export_flags_2d_physics var collision_layer
+
 var bullet_scene: PackedScene = preload("uid://c3caypuyf6grc")
 var current_bullets = []
 var cool = false

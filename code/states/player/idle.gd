@@ -1,4 +1,4 @@
-extends State
+extends PState
 
 
 func test(delta:float, input:Inputs) -> String:

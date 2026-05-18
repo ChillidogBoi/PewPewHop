@@ -2,8 +2,7 @@ extends Node
 
 @export var body: CharacterBody2D
 @export var gun: Node2D
-@export var move_state: State
-@export var gun_state: State
+@export var move_state: PState
 var inputs: Inputs
 
 func _ready():

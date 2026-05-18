@@ -1,4 +1,4 @@
-extends State
+extends PState
 
 const SPEED = 350
 

@@ -1,4 +1,4 @@
-extends State
+extends PState
 
 var POWER = 20
 var frames_left = 15

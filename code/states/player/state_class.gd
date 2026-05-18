@@ -1,6 +1,6 @@
 extends Node
 
-class_name State
+class_name PState
 
 @export var body: CharacterBody2D
 
