@@ -1,6 +1,6 @@
 extends Resource
 
-class_name InputMap
+class_name Inputs
 
 @export var move_dir: float = 0:
 	set(v):
