@@ -1,6 +1,6 @@
 extends PState
 
-const SPEED = 350
+const SPEED = 200
 
 func test(delta:float, input:Inputs) -> String:
 	if body.is_on_floor():

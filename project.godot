@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 
 window/size/viewport_width=1280
 window/size/viewport_height=704
+window/stretch/scale=4.0
 
 [input]
 
@@ -78,3 +79,4 @@ up={
 rendering_device/driver.windows="d3d12"
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+environment/defaults/default_clear_color=Color(0.48000002, 0.87866676, 1, 1)

@@ -1,6 +1,6 @@
 extends Node
 
-@export var health = 3
+@export var health = 2
 @export var body: CharacterBody2D
 @export var gun: Node2D
 @export var right_player_check: RayCast2D
@@ -51,7 +51,12 @@ func _physics_process(delta):
 
 
 func _on_hit_by_bullet(body):
+	body.queue_free()
 	sprite.modulate = Color.RED
+	$"../CollisionDebug".color = Color.WHITE
 	health -= 1
 	await get_tree().create_timer(0.1).timeout
 	sprite.modulate = Color.WHITE
+	$"../CollisionDebug".color = Color(0xff000067)
+	
+	if health < 1: get_parent().queue_free()

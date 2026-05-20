@@ -1,13 +1,15 @@
 extends PState
 
-var POWER = 20
+const SPEED = 200
+const POWER = 15
 var frames_left = 15
 
 func enter_state(delta:float, input:Inputs):
 	frames_left = 15
-	body.velocity.y = -150
+	body.velocity.y = -75
 
 func physics_function(delta:float, input:Inputs):
+	body.velocity.x = SPEED * input.move_dir
 	body.move_and_slide()
 	body.velocity.y -= POWER
 	frames_left -= 1

@@ -1,6 +1,6 @@
 extends PState
 
-const SPEED = 350
+const SPEED = 200
 var direction: int = 0
 
 func enter_state(delta:float, input:Inputs):

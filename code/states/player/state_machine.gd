@@ -1,11 +1,12 @@
 extends Node
 
+@export var healthbar: ProgressBar
 @export var sprite: Sprite2D
 @export var body: CharacterBody2D
 @export var gun: Node2D
 @export var move_state: PState
 var inputs: Inputs
-var health = 3
+var health = 5
 
 func _ready():
 	for n in get_children():
@@ -34,7 +35,9 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("shoot"): gun.shoot()
 	
 func _on_hit_by_bullet(body):
+	body.queue_free()
 	sprite.modulate = Color.RED
-	health -= 1
+	healthbar.value -= 1
 	await get_tree().create_timer(0.1).timeout
 	sprite.modulate = Color.WHITE
+	if healthbar.value < 1: get_tree().quit()
