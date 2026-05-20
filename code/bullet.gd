@@ -1,6 +1,6 @@
 extends AnimatableBody2D
 
-const SPEED = 400
+const SPEED = 550
 
 func _ready():
 	global_rotation = get_parent().global_rotation
@@ -9,3 +9,6 @@ func _ready():
 
 func _physics_process(delta):
 	global_position.x += delta * SPEED
+
+func free():
+	get_parent().current_bullets.erase(self)

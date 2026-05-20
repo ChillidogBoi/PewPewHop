@@ -3,6 +3,8 @@ extends Node
 class_name EState
 
 @export var body: CharacterBody2D
+@export var left_ground_check: RayCast2D
+@export var right_ground_check: RayCast2D
 
 func test(delta:float) -> String:
 	return "okay"
