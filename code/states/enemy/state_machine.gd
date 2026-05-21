@@ -12,6 +12,7 @@ extends Node
 var inputs: Inputs
 var inactive: bool = true
 var dir: int = -1
+var gunlock: bool = false
 
 func _ready():
 	for n in get_children():
@@ -35,6 +36,8 @@ func _physics_process(delta):
 	if inactive: return
 	move_state.physics_function(delta)
 	
+	if gunlock: return
+	
 	if right_player_check.is_colliding() and dir == -1:
 		dir = 1
 		sprite.flip_h = false
@@ -43,11 +46,14 @@ func _physics_process(delta):
 		dir = -1
 		sprite.flip_h = true
 		gun.rotation_degrees = 180
-	else: return
+	elif not right_player_check.is_colliding() and not left_player_check.is_colliding(): return
 	
+	gunlock = true
 	
-	await get_tree().create_timer(randf_range(0, 0.25)).timeout
+	await get_tree().create_timer(randf_range(0.05, 0.25)).timeout
 	gun.shoot()
+	
+	gunlock = false
 
 
 func _on_hit_by_bullet(body):

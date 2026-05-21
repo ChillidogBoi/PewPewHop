@@ -7,7 +7,7 @@ var current_bullets: Array[Node2D] = []
 var cool = false
 
 func shoot():
-	print(get_child_count())
+	print(global_position)
 	if cool:
 		print("Misfire! Fire slower.")
 		return
