@@ -50,14 +50,15 @@ func _physics_process(delta):
 	
 	gunlock = true
 	
-	await get_tree().create_timer(randf_range(0.05, 0.25)).timeout
+	await get_tree().create_timer(randf_range(0.375, 0.875)).timeout
 	gun.shoot()
 	
 	gunlock = false
 
 
-func _on_hit_by_bullet(body):
-	body.queue_free()
+func _on_hit_by_bullet(Nbody):
+	if inactive: return
+	Nbody.queue_free()
 	sprite.modulate = Color.RED
 	$"../CollisionDebug".color = Color.WHITE
 	health -= 1

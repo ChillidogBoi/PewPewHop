@@ -1,13 +1,13 @@
 extends PState
 
 const SPEED = 200
-const POWER = 45
-var frames_left = 4
+const POWER = 15
+var frames_left = 18
 
 func enter_state(delta:float, input:Inputs):
-	frames_left = 4
+	frames_left = 18
 	body.velocity.y = -75
-	anims.play("jump")
+	anims.play("super_jump")
 
 func physics_function(delta:float, input:Inputs):
 	body.velocity.x = SPEED * input.move_dir

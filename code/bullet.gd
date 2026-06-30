@@ -1,6 +1,7 @@
 extends AnimatableBody2D
 
-const SPEED = 550
+const SPEED = 240
+@export var damage = 315
 
 func _ready():
 	collision_layer = get_parent().collision_layer
@@ -10,9 +11,9 @@ func _ready():
 
 
 func _physics_process(delta):
-	var t = (1 + ((global_rotation_degrees / 180) * -2))
-	print(t)
-	global_position.x += delta * SPEED * t
+	var t = Vector2(1,0).rotated(global_rotation)
+#	print(t)
+	global_position += delta * SPEED * t
 
 func free():
 	get_parent().current_bullets.erase(self)

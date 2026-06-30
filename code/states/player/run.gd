@@ -1,10 +1,12 @@
 extends PState
 
-const SPEED = 200
+const SPEED = 175
 var direction: int = 0
 
 func enter_state(delta:float, input:Inputs):
 	direction = Vector2(input.move_dir, 0).normalized().x
+	if direction > 0: anims.play("walk_left")
+	else: anims.play("walk_right")
 
 func physics_function(delta:float, input:Inputs):
 	if Vector2(input.move_dir, 0).normalized().x != direction:
